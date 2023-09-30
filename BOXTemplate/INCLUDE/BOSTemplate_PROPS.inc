@@ -8,7 +8,7 @@ INCLUDE
 
 DENSITY
 -- oil water gas  (sc)
-   900 1030  1.22 /
+   {{Density_OIL}} 1030  1.22 /
 
 
 ROCK
