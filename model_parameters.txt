@@ -1,5 +1,0 @@
-Grid Size: 100
-Cell Size: 100
-Permeability: 100
-Porosity: 0.3
-NTG: 0.8

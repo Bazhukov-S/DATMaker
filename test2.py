@@ -1,71 +1,3 @@
-"""
-import os
-from flask import Flask, request
-from telegram import Update
-from telegram.ext import (
-    CallbackContext,
-    CommandHandler,
-    MessageHandler,
-    Filters,
-    Updater
-)
-from jinja2 import Environment, FileSystemLoader
-
-
-app = Flask(__name__)
-jinja_env = Environment(loader=FileSystemLoader('.'))
-template_file = "C:\УЧЕБА\DATMaker_BOT\DATMaker\BOXTemplate\INCLUDE\BOSTemplate_PROPS.inc"
-output_file = "C:\УЧЕБА\DATMaker_BOT\DATMaker\BOXTemplate\INCLUDE\BOSTemplate_PROPS_.inc"
-
-
-# def render_template(template_data):
-#     template = jinja_env.get_template(template_file)
-#     output = template.render(template_data)
-#     with open(output_file, 'w') as f:
-#         f.write(output)
-
-
-def start(update: Update, context: CallbackContext) -> None:
-    update.message.reply_text('Привет! Введите значение параметра Density_OIL:')
-
-
-def process_text(update: Update, context: CallbackContext) -> None:
-    density_oil = update.message.text
-
-    # Можно добавить валидацию значения density_oil здесь
-
-    # template_data = {'Density_OIL': density_oil}
-    # render_template(template_data)
-
-    # Отправка файла пользователю
-    context.bot.send_document(chat_id=update.effective_chat.id, document=open(template_file, 'rb'))
-
-
-app.route('/')
-def hello_world():
-    return 'Hello, World!'
-
-
-@app.route(f'/{"6593404619:AAEMwvBPipD9_w76tspKiLC1hDzoPZ0Pnbk"}', methods=['POST'])
-def respond():
-    update = Update.de_json(request.get_json(force=True), bot)
-    dp.process_update(update)
-    return 'ok'
-
-
-if __name__ == '__main__':
-    # Здесь необходимо заменить 'YOUR_BOT_TOKEN' на соответствующий токен вашего бота
-    updater = Updater(token='6593404619:AAEMwvBPipD9_w76tspKiLC1hDzoPZ0Pnbk', use_context=True)
-    bot = updater.bot
-    dp = updater.dispatcher
-
-    dp.add_handler(CommandHandler('start', start))
-    dp.add_handler(MessageHandler(Filters.text & ~Filters.command, process_text))
-
-    updater.start_polling()
-    app.run(threaded=True)
-"""
-
 import logging
 from telegram import ReplyKeyboardMarkup, ReplyKeyboardRemove
 from telegram.ext import Updater, CommandHandler, ConversationHandler, MessageHandler, Filters
@@ -86,6 +18,10 @@ def start(update, context):
         reply_markup=ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=True))
     return CREATE_MODEL
 
+
+"""
+Добавить ввод всех параметров одним сообщением
+"""
 
 def create_model(update, context):
     user_input = update.message.text

@@ -1,3 +1,13 @@
+-- Этот файл был сгенерирован тНавигатор v23.1-3979-g6d70bbb6d3f7.
+-- Copyright (C) Рок Флоу Динамикс 2005-2023.
+-- Все права защищены.
+
+-- Model name: 
+-- DynamicModel
+
+-- Project: 
+-- D:/diplom/HDM_models/sintetic_model — копия/BOXTemplate/BOXTemplate.snp
+
 
 RUNSPEC
 
@@ -114,27 +124,27 @@ INIT
 NOECHO
 
 NTG
- 1000*{{NTG}} /
+ 1000*0.9 /
 
 NOECHO
 
 PERMX
- 1000*{{PERM}} /
+ 1000*100 /
 
 NOECHO
 
 PERMY
- 1000*{{PERM}} /
+ 1000*100 /
 
 NOECHO
 
 PERMZ
- 1000*{{PERMZ}} /
+ 1000*10.0 /
 
 NOECHO
 
 PORO
- 1000*{{PORO}}/
+ 1000*0.2/
 /
 
 
@@ -462,5 +472,4 @@ DATES
 
 
 END
-
 
